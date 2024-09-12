@@ -1,6 +1,9 @@
 # Btns
 Buttons board compatible with monome grid
 
+![IMG_7507-1](https://github.com/user-attachments/assets/b30c0268-ae4c-49fb-9283-8914aa79c777)
+
+
 ## Overview
 Btns is a clone of [Monome Grid]([url](https://monome.org)).
 
