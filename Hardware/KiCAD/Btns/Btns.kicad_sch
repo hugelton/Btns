@@ -1,0 +1,89 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "6cbd19e5-da26-4980-af8b-246e7f2dab3e")
+	(paper "A4")
+	(lib_symbols)
+	(sheet
+		(at 73.66 68.58)
+		(size 40.64 10.16)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "87504a8f-ecac-45cc-99cb-95b552eabb3c")
+		(property "Sheetname" "Board"
+			(at 73.66 67.8684 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "btns_board.kicad_sch"
+			(at 73.66 79.3246 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Btns"
+				(path "/6cbd19e5-da26-4980-af8b-246e7f2dab3e"
+					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 73.66 48.26)
+		(size 40.64 10.16)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "8c89e4c1-09f5-4757-b70b-09921e5cd017")
+		(property "Sheetname" "Mother"
+			(at 73.66 47.5484 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "btns_mother.kicad_sch"
+			(at 73.66 59.0046 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "Btns"
+				(path "/6cbd19e5-da26-4980-af8b-246e7f2dab3e"
+					(page "2")
+				)
+			)
+		)
+	)
+	(sheet_instances
+		(path "/"
+			(page "1")
+		)
+	)
+)
