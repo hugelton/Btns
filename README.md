@@ -7,6 +7,7 @@ Buttons board compatible with monome grid
 ## Overview
 Btns is a clone of [Monome Grid]([url](https://monome.org)).
 
+**⚠️ Not supported gray-scaled LEDs**
 
 ## Make
 ### Hardware
