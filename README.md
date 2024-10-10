@@ -27,5 +27,12 @@ Make your board from the gerber.
 ### Firmware
 upload the firmware to Pico from [Release]([url](https://github.com/hugelton/Btns/releases/tag/0.3)). 
 
+### Test
+Please use okyeron's [grid-test](https://github.com/okyeron/grid-test) 
+
+```
+;install https://github.com/okyeron/grid-test
+```
+
 ## Acknowledgments
 Based on okyeron's [neotrellis-monome](https://github.com/okyeron/neotrellis-monome/) project.
