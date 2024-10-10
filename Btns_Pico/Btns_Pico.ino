@@ -1,4 +1,4 @@
-// Btns 0.4
+// Btns 0.5
 // by Leo Kuroshita for Hügelton instruments.
 
 #include "MonomeSerialDevice.h"
@@ -172,7 +172,7 @@ void updateLEDMatrix() {
         for (int col = 0; col < NUM_COLS; col++) {
             int ledRow, ledCol;
             mapButtonToLED(row, col, ledRow, ledCol);
-            matrix.setPixel(ledCol, ledRow, mdp.leds[row * NUM_COLS + col] > 0);
+            matrix.setPixel(ledRow, ledCol, mdp.leds[row * NUM_COLS + col] > 0);
         }
     }
 }
