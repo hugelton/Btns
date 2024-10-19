@@ -37,6 +37,30 @@ void MonomeSerialDevice::setupAsArc(uint8_t _encoders) {
   debugfln(INFO, "ARC encoders: %d", encoders);
 }
 
+void MonomeSerialDevice::setTiltActive(uint8_t sensor, bool active) {
+  if (sensor < 4) {
+    tiltActive[sensor] = active;
+  }
+}
+
+void MonomeSerialDevice::sendTiltEvent(uint8_t sensor, int16_t x, int16_t y, int16_t z) {
+    if (sensor < 4 && tiltActive[sensor]) {
+        lastTiltX[sensor] = x;
+        lastTiltY[sensor] = y;
+        lastTiltZ[sensor] = z;
+
+        Serial.write((uint8_t)0x81);  // tiltイベントのプレフィックス
+        Serial.write(sensor);
+        Serial.write((uint8_t)(x >> 8));
+        Serial.write((uint8_t)(x & 0xFF));
+        Serial.write((uint8_t)(y >> 8));
+        Serial.write((uint8_t)(y & 0xFF));
+        Serial.write((uint8_t)(z >> 8));
+        Serial.write((uint8_t)(z & 0xFF));
+    }
+}
+
+
 void MonomeSerialDevice::getDeviceInfo() {
   //debugln(INFO, "MonomeSerialDevice::getDeviceInfo");
   Serial.write(uint8_t(0));
@@ -599,10 +623,27 @@ void MonomeSerialDevice::processSerial() {
       //  0-255
       // description: encoder switch down
       break;
+    case 0x80:  // tilt / set active
+      {
+        uint8_t sensor = Serial.read();
+        uint8_t active = Serial.read();
+        setTiltActive(sensor, active == 1);
 
-    case 0x80:  //   tilt / active response - 9 bytes [0x01, d]
+        // send
+        Serial.write((uint8_t)0x80);
+        Serial.write(sensor);
+        Serial.write(active);
+      }
       break;
-    case 0x81:  //   tilt - 8 bytes [0x80, n, xh, xl, yh, yl, zh, zl]
+
+    case 0x81:  // tilt data request
+      {
+        uint8_t sensor = Serial.read();
+        if (sensor < 4 && tiltActive[sensor]) {
+          // recent data send
+          sendTiltEvent(sensor, lastTiltX[sensor], lastTiltY[sensor], lastTiltZ[sensor]);
+        }
+      }
       break;
 
     // 0x90 variable 64 LED ring

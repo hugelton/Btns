@@ -73,6 +73,10 @@ public:
   void refreshGrid();
   void refreshArc();
 
+  void setTiltActive(uint8_t sensor, bool active);
+  void sendTiltEvent(uint8_t sensor, int16_t x, int16_t y, int16_t z);
+
+
   bool active;
   bool isMonome;
   bool isGrid;
@@ -91,6 +95,10 @@ private:
   bool arcDirty = false;
   bool gridDirty = false;
   uint8_t gridRotation;  // 0, 1, 2, or 3 for 0, 90, 180, 270 degrees
+ bool tiltActive[4] = {false, false, false, false};
+    int16_t lastTiltX[4] = {0};
+    int16_t lastTiltY[4] = {0};
+    int16_t lastTiltZ[4] = {0};
 
   //        MonomeSerialDevice();
   void processSerial();
