@@ -7,7 +7,7 @@ Buttons board compatible with monome grid
 ## Overview
 Btns is a clone of [Monome Grid]([url](https://monome.org)).
 
-**⚠️ Not supported gray-scaled LEDs**
+**⚠️ It doesn't support 16 levels of LED grey scale. It just turns on or off. **
 
 ## Make
 ### Hardware
@@ -27,12 +27,18 @@ Make your board from the gerber.
 ### Firmware
 upload the firmware to Pico from [Release]([url](https://github.com/hugelton/Btns/releases/tag/0.3)). 
 
-### Test
+### Test (on Norns)
 Please use okyeron's [grid-test](https://github.com/okyeron/grid-test) 
 
 ```
 ;install https://github.com/okyeron/grid-test
 ```
+
+### Plans
++ support MPU-6050 (tilt)
++ support multi-PWM
++ support other buttons
+
 
 ## Acknowledgments
 Based on okyeron's [neotrellis-monome](https://github.com/okyeron/neotrellis-monome/) project.
